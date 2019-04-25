@@ -8,7 +8,9 @@ function displayResults(responseJson) {
       <li>
         <h3>${responseJson.data[i].fullName}</h3>
         <p>${responseJson.data[i].description}</p>
-        <p>${responseJson.data[i].directionsInfo}</p>
+        <p><strong>Address:</strong><br>${responseJson.data[i].addresses[1].line1}, ${responseJson.data[i].addresses[1].line2} ${responseJson.data[i].addresses[1].city}, ${responseJson.data[i].addresses[1].stateCode} ${responseJson.data[i].addresses[1].postalCode}</p>
+        <p><strong>Directions:</strong><br>${responseJson.data[i].directionsInfo}</p>
+        <p><strong>Weather Info:</strong><br>${responseJson.data[i].weatherInfo}</p>
         <a href='${responseJson.data[i].url}'>${responseJson.data[i].url}</a>
       </li>
       <br><br>
