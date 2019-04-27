@@ -23,7 +23,7 @@ function displayResults(responseJson) {
 function getParkData(state, resultsNum){
   const baseURL = 'https://developer.nps.gov/api/v1/parks';
   const apiKey = '7zkq9Mh7PfM7MR6qV9vsT7zboqz3Rye67h6pt2wG';
-  const url = baseURL+'?stateCode='+state+'&limit='+resultsNum+'&api_key='+apiKey;
+  const url = baseURL+'?stateCode='+state+'&limit='+resultsNum+'&fields=addresses&api_key='+apiKey;
 
   console.log(url);
 
