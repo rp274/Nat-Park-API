@@ -44,10 +44,34 @@ function getParkData(state, resultsNum){
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
-    const state = $('#js-state').val();
+    const state = $('#js-state').val()+','+$('#js-add-state').children().map(function () {
+      return $(this).val();
+    }).get().join(',');
+
     const resultsNum = $('#js-results-num').val()-1;
     console.log(state, resultsNum);
     getParkData(state, resultsNum)
   })
 }
-$(watchForm);
+
+// add/remove state options
+function inputModify() {
+// remove state form
+  $('.remove-state').click(function() {
+    console.log('remove state')
+    $('#js-add-state').children().last().remove();
+  });
+// add state form
+  $('.add-state').click(function() {
+    console.log('add state')
+    $("#js-state").clone().appendTo("#js-add-state");
+  });
+}
+
+// START
+function appLoad() {
+  inputModify();
+  watchForm();
+};
+
+$(appLoad)
